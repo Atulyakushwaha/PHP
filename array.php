@@ -50,6 +50,10 @@
     echo "<br>";
     print_r($arr10);
 
+    array_map(function($arr1,$arr2){
+        return "$arr1 likes $arr2\n";
+    },$arr1,$arr2);
+
     
     ?>
 </body>
