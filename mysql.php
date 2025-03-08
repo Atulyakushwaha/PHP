@@ -6,18 +6,30 @@
     <title>Document</title>
 </head>
 <body>
+    <form method="post" action="mysql.php">
+        <input type="text" name="empid"></input>
+        <input type="text"name="name"></input>
+        <input type="text"name="salary"></input>
+        <input type="text"name="dep"></input>
+        <button type="submit"name="submit">submit</button>
+     
+
+</form>
+
     <?php
-     $eid=201;
-     $name="atulya";
-     $sal=70000;
-     $dep="account";
-     $mycom=mysqli_connect("localhost","root","","collage");
+    if(isset($_POST["submit"])){
+     $eid=$_POST["empid"];
+     $name=$_POST["name"];
+     $sal=$_POST["salary"];
+     $dep=$_POST["dep"];
+     $mycom=mysqli_connect("localhost","root","12345","collage");
      echo "connection sucess";
      $sql="insert into emp values(?,?,?,?)";
      $ps=$mycom->prepare($sql);
      $ps->bind_param("isis",$eid,$name,$sal,$dep);
      $ps->execute();
-     echo "recorde inserted suss"
+     echo "recorde inserted suss";
+    }
     
 
     ?>
